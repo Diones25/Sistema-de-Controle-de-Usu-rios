@@ -1,9 +1,14 @@
 <?php
+require 'config.php';
     if(isset($_POST['nome']) && empty($_POST['nome']) == false){
         $nome = addslashes($_POST['nome']);
         $email = addslashes($_POST['email']);
-        $senha = addslashes($_POST['senha']);
+        $senha = md5(addslashes($_POST['senha']));
+
+        $sql = "INSERT INTO usuarios SET nome = '$nome', email = '$email', senha = '$senha'";
+        $pdo->query($sql);
         
+        header("Location: index.php");
     }
 
 
@@ -18,7 +23,7 @@
     <title>Adiconar</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form method="post">
         Nome:
         <input type="text" name="nome" id=""><br>
         Email:
