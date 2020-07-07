@@ -1,3 +1,7 @@
+<?php
+    require 'config.php'
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,13 +11,29 @@
 </head>
 <body>
     <table border="1" width="100%">
-        <th>Nome</th>
-        <th>E-mail</th>
-        <th>Ações</th>
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Ações</th>
+        </tr>
+        <?php
+            $sql = "SELECT * FROM usuarios";
+            $sql = $pdo->query($sql);
+            if($sql->rowCount() > 0){
+                foreach($sql->fetchAll() as $usuario){
+                    echo "<tr>";
+                    echo "<td>".$usuario["nome"]."</td>";
+                    echo "<td>".$usuario["email"]."</td>";
+                    echo "<td></td>";
+                    echo "</tr>";
+                }
+            }
+        ?>
     </table>
-
+    
+    <!--Estilo css-->
     <style>
-        table{
+        table,tr,td{
             border-collapse: collapse;
         }
     </style>
