@@ -10,8 +10,10 @@
     <title>Controle de Usuários</title>
 </head>
 <body>
-    <a class="adicionar" href="adicionar.php">Adicionar novo usuário</a>
-    <table border="1" width="100%">
+    <div class="container-button">
+        <a class="adicionar" href="adicionar.php">Adicionar novo usuário</a>
+    </div>
+    <table border="1" width="60%">
         <tr>
             <th>Nome</th>
             <th>E-mail</th>
@@ -25,7 +27,11 @@
                     echo '<tr>';
                     echo '<td>'.$usuario["nome"].'</td>';
                     echo '<td>'.$usuario["email"].'</td>';
-                    echo '<td><a class="editar" href="editar.php?id=$usuario["id"]">Editar</a> - <a class="exluir" href="excluir.php?$usuario["id"]">Ecluir</a></td>';
+                    echo '
+                    <td>
+                        <a class="editar" href=editar.php?id='.$usuario['id'].'>Editar</a>  
+                        <a class="exluir" href=excluir.php?id='.$usuario['id'].'>Ecluir</a>
+                    </td>';
                     echo '</tr>';
                 }
             }
@@ -36,6 +42,7 @@
     <style>
         table{
             border-collapse: collapse;
+            margin: 0 auto;
         }
         th{
             padding: 6px;
@@ -73,6 +80,10 @@
         .exluir:hover{
             background: #ff7675;
         }
+        .container-button{
+            width: 60%;
+            margin: 0 auto;
+        }
         .adicionar{
             text-decoration: none;
             width: 210px;
@@ -82,7 +93,7 @@
             text-align: center;
             line-height: 35px;
             color: #fff;
-            margin: 2px 2px 10px 0px;
+            margin: 0 0 5px 0;
             border-radius: 3px;
             box-shadow: 2px 2px 2px #ccc;
         }

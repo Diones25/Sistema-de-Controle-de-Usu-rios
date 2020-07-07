@@ -6,13 +6,10 @@ require 'config.php';
         $senha = md5(addslashes($_POST['senha']));
 
         $sql = "INSERT INTO usuarios SET nome = '$nome', email = '$email', senha = '$senha'";
-        $pdo->query($sql);
+        $sql = $pdo->query($sql);
         
         header("Location: index.php");
     }
-
-
-
 ?>
 
 <!DOCTYPE html>
