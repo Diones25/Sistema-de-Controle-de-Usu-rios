@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+    require 'config.php';
     if(isset($_POST['nome']) && empty($_POST['nome']) == false){
         $nome = addslashes($_POST['nome']);
         $email = addslashes($_POST['email']);
